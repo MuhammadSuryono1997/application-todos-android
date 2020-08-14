@@ -36,6 +36,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder
     public void setTodos(Context context, final List<DataTodos> dataTodosList){
         this.context = context;
         this.dataTodos = dataTodosList;
+        this.dataTodosFiltered = dataTodosList;
 
         String js = new Gson().toJson(this.dataTodos);
         Log.d("Get adapter", js);
@@ -107,14 +108,14 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull TodosAdapter.MyViewHolder holder, int position) {
 
-        holder.BinData(dataTodos.get(position));
+        holder.BinData(dataTodosFiltered.get(position));
     }
 
     @Override
     public int getItemCount() {
 
         Log.d("Get adapter 2", "size"+dataTodos.size());
-        return dataTodos.size();
+        return dataTodosFiltered.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

@@ -198,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
     private void ShowForm(){
         FormTaskBinding formTaskBinding;
         formTaskBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.form_task);
+        formTaskBinding.statusSwitch.setVisibility(View.GONE);
         formTaskBinding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
